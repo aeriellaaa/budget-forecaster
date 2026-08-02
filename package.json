@@ -1,0 +1,28 @@
+{
+  "name": "budget-forecaster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start": "node server.js",
+  "dev": "nodemon server.js"
+ },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aeriellaaa/budget-forecaster.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/aeriellaaa/budget-forecaster/issues"
+  },
+  "homepage": "https://github.com/aeriellaaa/budget-forecaster#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
