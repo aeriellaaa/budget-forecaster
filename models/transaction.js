@@ -1,7 +1,7 @@
 const VALID_TYPES = ['income', 'expense'];
 const VALID_CATEGORIES = [
-  'Salary', 'Rent', 'Groceries', 'Subscriptions',
-  'Utilities', 'Entertainment', 'Other'
+  'Salary', 'Freelance', 'Rent', 'Groceries', 'Subscriptions',
+  'Utilities', 'Transport', 'Entertainment', 'Other'
 ];
 const VALID_FREQUENCIES = ['weekly', 'monthly', 'yearly'];
 

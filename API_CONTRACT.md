@@ -7,7 +7,7 @@ Base URL: http://localhost:3000/api
   "id": "string",
   "type": "income" | "expense",
   "amount": number (positive),
-  "category": "Salary" | "Rent" | "Groceries" | "Subscriptions" | "Utilities" | "Entertainment" | "Other",
+  "category": "Salary" | "Freelance" | "Rent" | "Groceries" | "Subscriptions" | "Utilities" | "Transport" | "Entertainment" | "Other",
   "date": "YYYY-MM-DD",
   "description": "string",
   "recurring": boolean,
