@@ -1,5 +1,3 @@
-Here's the full content in one block — copy everything between the lines and paste it into `README.md`:
-
 ```markdown
 # Budget Forecaster
 
