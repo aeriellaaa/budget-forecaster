@@ -517,11 +517,11 @@ button, input, select {
    ============================================ */
 .month-selector {
   display: flex;
+  flex-wrap: wrap;
   border: 1px solid var(--line-strong);
   border-radius: 4px;
   overflow: hidden;
 }
-
 .month-selector button {
   background: var(--card-bg);
   border: none;
