@@ -77,7 +77,7 @@ function renderHeatmap(container, transactions) {
     ))
     .join('');
 
-  container.innerHTML = `
+   container.innerHTML = `
     <div class="heatmap-inner">
       <div class="heatmap-months">${monthsHtml}</div>
       <div class="heatmap-body">
@@ -85,6 +85,13 @@ function renderHeatmap(container, transactions) {
           <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
         </div>
         <div class="heatmap-grid">${gridHtml}</div>
+      </div>
+      <div class="heatmap-legend">
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--green"></span> under $50</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--orange"></span> $50–150</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--pink"></span> $150–250</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--red"></span> $250–1000</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--blue"></span> over $1000</span>
       </div>
     </div>
   `;

@@ -690,10 +690,34 @@ button, input, select {
 
 .heatmap-cell--none { background: var(--line); }
 .heatmap-cell--green { background: #22C55E; }
-.heatmap-cell--orange { background: #F97316; }
 .heatmap-cell--pink { background: #EC4899; }
 .heatmap-cell--red { background: #EF4444; }
+.heatmap-cell--orange { background: #F97316; }
 .heatmap-cell--blue { background: #3B82F6; }
+.heatmap-cell--white { background: #FFFFFF; border: 1px solid var(--line-strong); }
+
+.heatmap-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.heatmap-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+}
+
+.heatmap-legend .heatmap-cell {
+  width: 10px;
+  height: 10px;
+}
 
 .toast {
   position: fixed;

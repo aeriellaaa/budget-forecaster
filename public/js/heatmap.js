@@ -7,13 +7,14 @@ function computeDailyExpenseTotals(transactions) {
   return totals;
 }
 
-function levelForAmount(amount, max) {
-  if (!amount || amount <= 0 || max <= 0) return 0;
-  const ratio = amount / max;
-  if (ratio > 0.75) return 4;
-  if (ratio > 0.5) return 3;
-  if (ratio > 0.25) return 2;
-  return 1;
+function levelForAmount(amount) {
+  if (!amount || amount <= 0) return 'none';
+  if (amount > 1000) return 'white';
+  if (amount >= 500) return 'blue';
+  if (amount >= 250) return 'orange';
+  if (amount >= 150) return 'red';
+  if (amount >= 50) return 'pink';
+  return 'green';
 }
 
 function buildCalendarWeeks(year) {
@@ -52,7 +53,6 @@ function getMonthLabels(weeks) {
 
 function renderHeatmap(container, transactions) {
   const totals = computeDailyExpenseTotals(transactions);
-  const maxAmount = Math.max(0, ...Object.values(totals));
   const year = new Date().getFullYear();
   const weeks = buildCalendarWeeks(year);
   const monthLabels = getMonthLabels(weeks);
@@ -68,11 +68,11 @@ function renderHeatmap(container, transactions) {
         const iso = date.toISOString().slice(0, 10);
         const amount = totals[iso] || 0;
         const inYear = date.getFullYear() === year;
-        const level = inYear ? levelForAmount(amount, maxAmount) : 0;
+        const level = inYear ? levelForAmount(amount) : 'none';
         const title = inYear
           ? (amount > 0 ? `${iso}: $${amount.toFixed(2)} spent` : `${iso}: no spending`)
           : '';
-        return `<div class="heatmap-cell heatmap-cell--level-${level}" title="${title}"></div>`;
+        return `<div class="heatmap-cell heatmap-cell--${level}" title="${title}"></div>`;
       }).join('') +
       '</div>'
     ))
@@ -86,6 +86,14 @@ function renderHeatmap(container, transactions) {
           <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
         </div>
         <div class="heatmap-grid">${gridHtml}</div>
+      </div>
+            <div class="heatmap-legend">
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--green"></span> under $50</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--pink"></span> $50-150</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--red"></span> $150-250</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--orange"></span> $250-500</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--blue"></span> $500-1000</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--white"></span> over $1000</span>
       </div>
     </div>
   `;

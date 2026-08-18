@@ -2,41 +2,61 @@
   "balance": 0,
   "transactions": [
     {
-      "id": "1787031335097",
+      "id": "1787085749986",
       "type": "income",
       "amount": 2000,
       "category": "Salary",
-      "date": "2026-08-18",
+      "date": "2026-08-19",
       "description": "",
       "recurring": false,
       "recurrence": null
     },
     {
-      "id": "1787031350037",
+      "id": "1787085792272",
+      "type": "expense",
+      "amount": 500,
+      "category": "Rent",
+      "date": "2026-08-20",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787085804115",
+      "type": "expense",
+      "amount": 300,
+      "category": "Groceries",
+      "date": "2026-08-21",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787086034319",
+      "type": "expense",
+      "amount": 250,
+      "category": "Subscriptions",
+      "date": "2026-08-21",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787086055147",
       "type": "expense",
       "amount": 100,
-      "category": "Rent",
-      "date": "2026-08-19",
+      "category": "Utilities",
+      "date": "2026-08-22",
       "description": "",
       "recurring": false,
       "recurrence": null
     },
     {
-      "id": "1787031365546",
+      "id": "1787086091464",
       "type": "expense",
       "amount": 500,
-      "category": "Groceries",
-      "date": "2026-08-19",
-      "description": "",
-      "recurring": false,
-      "recurrence": null
-    },
-    {
-      "id": "1787031383044",
-      "type": "expense",
-      "amount": 500,
-      "category": "Subscriptions",
-      "date": "2026-08-20",
+      "category": "Transport",
+      "date": "2026-08-24",
       "description": "",
       "recurring": false,
       "recurrence": null
