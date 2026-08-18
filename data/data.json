@@ -2,27 +2,44 @@
   "balance": 0,
   "transactions": [
     {
-      "id": "1786272257382",
+      "id": "1787031335097",
       "type": "income",
-      "amount": 20000,
-      "category": "Freelance",
-      "date": "2026-08-09",
-      "description": "Freelance project payment",
+      "amount": 2000,
+      "category": "Salary",
+      "date": "2026-08-18",
+      "description": "",
       "recurring": false,
       "recurrence": null
     },
     {
-      "id": "1786272954301",
+      "id": "1787031350037",
       "type": "expense",
-      "amount": 15000,
+      "amount": 100,
       "category": "Rent",
-      "date": "2026-08-01",
-      "description": "Monthly rent",
-      "recurring": true,
-      "recurrence": {
-        "frequency": "monthly",
-        "endDate": null
-      }
+      "date": "2026-08-19",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787031365546",
+      "type": "expense",
+      "amount": 500,
+      "category": "Groceries",
+      "date": "2026-08-19",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787031383044",
+      "type": "expense",
+      "amount": 500,
+      "category": "Subscriptions",
+      "date": "2026-08-20",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
     }
   ]
 }

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ledger — Budget Forecaster</title>
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <header class="app-header">
+    <div class="app-header__inner">
+      <div class="app-header__text">
+        <div class="app-header__brand">
+          <span class="app-header__mark">◧</span>
+          <h1 class="app-header__title">Ledger</h1>
+        </div>
+        <p class="app-header__tag">a running account of what's coming</p>
+      </div>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <!-- ===== Add / Edit Transaction Form ===== -->
+    <section class="panel panel--form" id="transaction-form-section" aria-labelledby="form-heading">
+      <h2 id="form-heading" class="panel__title">New entry</h2>
+
+      <form id="transaction-form" novalidate>
+        <input type="hidden" id="transaction-id" value="" />
+
+        <div class="field-row">
+          <div class="field">
+            <label for="type">Type</label>
+            <select id="type" name="type" required>
+              <option value="income">Income</option>
+              <option value="expense" selected>Expense</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" name="amount" step="0.01" min="0" placeholder="0.00" required />
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <select id="category" name="category" required>
+              <option value="" disabled selected>Choose one</option>
+              <option value="Salary">Salary</option>
+              <option value="Freelance">Freelance</option>
+              <option value="Rent">Rent</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Subscriptions">Subscriptions</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Transport">Transport</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Gym">Gym</option>
+              <option value="Drinks">Drinks</option>
+              <option value="Sutta">Sutta</option>
+              <option value="Gifts">Gifts</option>
+              <option value="Mid-day Meal">Mid-day Meal</option>
+              <option value="Self Reward">Self Reward</option>
+              <option value="Chai/Coffee">Chai/Coffee</option>
+              <option value="Stationery">Stationery</option>
+              <option value="Borrowed Money">Borrowed Money</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="description">Description</label>
+          <input type="text" id="description" name="description" placeholder="Optional note" />
+        </div>
+
+        <div class="field field--toggle">
+          <label class="switch">
+            <input type="checkbox" id="recurring" name="recurring" />
+            <span class="switch__track"><span class="switch__thumb"></span></span>
+            <span class="switch__label">Recurring</span>
+          </label>
+        </div>
+
+        <div class="field-row field--recurring-detail" id="recurring-detail" hidden>
+          <div class="field">
+            <label for="frequency">Frequency</label>
+            <select id="frequency" name="frequency">
+              <option value="weekly">Weekly</option>
+              <option value="monthly" selected>Monthly</option>
+              <option value="yearly">Yearly</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="end-date">Ends</label>
+            <input type="date" id="end-date" name="endDate" />
+          </div>
+        </div>
+
+        <div class="form-errors" id="form-errors" role="alert" hidden></div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary" id="form-submit">Add entry</button>
+          <button type="button" class="btn btn--ghost" id="form-cancel" hidden>Cancel edit</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="right-column">
+
+      <!-- ===== Transaction List ===== -->
+      <section class="panel panel--list" id="transaction-list-section" aria-labelledby="list-heading">
+        <div class="panel__header">
+          <h2 id="list-heading" class="panel__title">Entries</h2>
+          <div class="filters">
+            <input type="date" id="filter-start" aria-label="From date" />
+            <span class="filters__sep">–</span>
+            <input type="date" id="filter-end" aria-label="To date" />
+            <select id="filter-category" aria-label="Filter by category">
+              <option value="">All categories</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ledger" id="ledger">
+          <div class="ledger__head">
+            <span>Date</span>
+            <span>Description</span>
+            <span>Category</span>
+            <span class="ledger__amount-col">Amount</span>
+            <span class="ledger__actions-col"></span>
+          </div>
+          <div class="ledger__body" id="ledger-body">
+            <!-- rows injected by transactions.js -->
+          </div>
+          <p class="ledger__empty" id="ledger-empty" hidden>No entries yet — add your first one on the left.</p>
+        </div>
+      </section>
+
+      <!-- ===== Activity Panel ===== -->
+      <section class="panel panel--activity" id="activity-section" aria-labelledby="activity-heading">
+        <div class="panel__header">
+          <h2 id="activity-heading" class="panel__title">Activity</h2>
+          <div class="activity-ring-wrap">
+            <div id="activity-ring" class="activity-ring"></div>
+            <span id="activity-ring-value" class="activity-ring-value">—</span>
+          </div>
+        </div>
+        <div id="heatmap" class="heatmap"></div>
+      </section>
+
+      <!-- ===== Forecast Panel ===== -->
+      <section class="panel panel--forecast" id="forecast-section" aria-labelledby="forecast-heading">
+        <div class="panel__header">
+          <h2 id="forecast-heading" class="panel__title">Forecast</h2>
+          <div class="month-selector" id="month-selector">
+            <button type="button" data-months="3">3mo</button>
+            <button type="button" data-months="6" class="is-active">6mo</button>
+            <button type="button" data-months="12">12mo</button>
+          </div>
+        </div>
+
+        <div class="forecast-body" id="forecast-body">
+          <p class="forecast-placeholder">Chart and projections land here.</p>
+        </div>
+
+        <div class="statement" id="statement-summary" hidden>
+          <div class="statement__row">
+            <span>Net income / month</span>
+            <strong id="stat-net">—</strong>
+          </div>
+          <div class="statement__row">
+            <span>Upcoming income</span>
+            <strong id="stat-income" class="ink-income">—</strong>
+          </div>
+          <div class="statement__row">
+            <span>Upcoming expenses</span>
+            <strong id="stat-expense" class="ink-expense">—</strong>
+          </div>
+          <div class="statement__row statement__row--total">
+            <span>Projected end balance</span>
+            <strong id="stat-end-balance">—</strong>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/transactions.js"></script>
+  <script src="js/heatmap.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/forecast.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
