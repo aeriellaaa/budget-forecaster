@@ -1,14 +1,3 @@
-/**
- * forecast.js — forecast panel logic.
- *
- * Month view (3/6/12mo): pulled from the real GET /api/forecast endpoint.
- * Week view (Wk1-4): computed locally from the transactions already
- * loaded on the page — breaks the current month into four chunks and
- * shows the real running balance across each one.
- */
-
-let selectedMonths = 6;
-let currentMode = 'months'; // 'months' | 'week'
 let currentWeek = 1;
 
 function formatCurrency(amount) {
@@ -57,8 +46,6 @@ function renderForecast(forecast, netLabel) {
   document.getElementById('statement-summary').hidden = false;
 }
 
-/* ===== Week view — computed from real transactions already on the page ===== */
-
 function getWeekRange(week) {
   const today = new Date();
   const year = today.getFullYear();
@@ -81,7 +68,6 @@ function loadWeekView(week) {
   const startIso = start.toISOString().slice(0, 10);
   const endIso = end.toISOString().slice(0, 10);
 
-  // Running balance going into this week = net of everything before it.
   let runningBalance = 0;
   for (const t of transactions) {
     if (t.date < startIso) {
@@ -105,6 +91,11 @@ function loadWeekView(week) {
     cursor.setDate(cursor.getDate() + 1);
   }
 
+  if (balanceSeries.every((p) => p.balance === balanceSeries[0].balance) && weekIncome === 0 && weekExpense === 0) {
+    showForecastError(`No activity in Week ${week} yet.`);
+    return;
+  }
+
   const forecast = {
     balanceSeries,
     summary: {
@@ -118,24 +109,6 @@ function loadWeekView(week) {
   renderForecast(forecast, 'Net this week');
 }
 
-/* ===== Month view — real API ===== */
-
-async function loadMonthView() {
-  const chartContainer = document.getElementById('forecast-body');
-  chartContainer.innerHTML = '<p class="forecast-placeholder">Loading forecast…</p>';
-
-  try {
-    const forecast = await getForecast(selectedMonths);
-    if (!forecast.balanceSeries || forecast.balanceSeries.length === 0) {
-      showForecastError('No forecast data yet — add some transactions to see a projection.');
-      return;
-    }
-    renderForecast(forecast, 'Net income / month');
-  } catch (err) {
-    showForecastError(err.messages ? err.messages.join(' ') : 'Could not load the forecast.');
-  }
-}
-
 function initMonthSelector() {
   const container = document.getElementById('month-selector');
   container.addEventListener('click', (e) => {
@@ -145,19 +118,12 @@ function initMonthSelector() {
     container.querySelectorAll('button').forEach((b) => b.classList.remove('is-active'));
     btn.classList.add('is-active');
 
-    if (btn.dataset.months) {
-      currentMode = 'months';
-      selectedMonths = Number(btn.dataset.months);
-      loadMonthView();
-    } else if (btn.dataset.week) {
-      currentMode = 'week';
-      currentWeek = Number(btn.dataset.week);
-      loadWeekView(currentWeek);
-    }
+    currentWeek = Number(btn.dataset.week);
+    loadWeekView(currentWeek);
   });
 }
 
 function initForecast() {
   initMonthSelector();
-  loadMonthView();
+  loadWeekView(currentWeek);
 }

@@ -2,9 +2,9 @@
   "balance": 0,
   "transactions": [
     {
-      "id": "1787085749986",
+      "id": "1787087713978",
       "type": "income",
-      "amount": 2000,
+      "amount": 3000,
       "category": "Salary",
       "date": "2026-08-19",
       "description": "",
@@ -12,7 +12,7 @@
       "recurrence": null
     },
     {
-      "id": "1787085792272",
+      "id": "1787087729502",
       "type": "expense",
       "amount": 500,
       "category": "Rent",
@@ -22,9 +22,9 @@
       "recurrence": null
     },
     {
-      "id": "1787085804115",
+      "id": "1787087742681",
       "type": "expense",
-      "amount": 300,
+      "amount": 200,
       "category": "Groceries",
       "date": "2026-08-21",
       "description": "",
@@ -32,31 +32,41 @@
       "recurrence": null
     },
     {
-      "id": "1787086034319",
+      "id": "1787087760478",
       "type": "expense",
-      "amount": 250,
-      "category": "Subscriptions",
-      "date": "2026-08-21",
-      "description": "",
-      "recurring": false,
-      "recurrence": null
-    },
-    {
-      "id": "1787086055147",
-      "type": "expense",
-      "amount": 100,
-      "category": "Utilities",
+      "amount": 50,
+      "category": "Other",
       "date": "2026-08-22",
       "description": "",
       "recurring": false,
       "recurrence": null
     },
     {
-      "id": "1787086091464",
+      "id": "1787087775586",
       "type": "expense",
-      "amount": 500,
-      "category": "Transport",
+      "amount": 20,
+      "category": "Other",
+      "date": "2026-08-23",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787087793310",
+      "type": "expense",
+      "amount": 300,
+      "category": "Other",
       "date": "2026-08-24",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787087816346",
+      "type": "expense",
+      "amount": 300,
+      "category": "Utilities",
+      "date": "2026-08-25",
       "description": "",
       "recurring": false,
       "recurrence": null
