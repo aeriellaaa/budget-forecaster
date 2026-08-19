@@ -1,16 +1,10 @@
 /**
  * transactions.js — transaction list + add/edit form logic.
- *
- * Day 3-4: wired to the real backend now that the contract's finalized.
- * recurring shape: recurring: boolean, recurrence: { frequency, endDate } | null
- * filters: from / to / category
  */
 
 const CATEGORIES = [
   'Salary', 'Freelance', 'Rent', 'Groceries', 'Subscriptions',
-  'Utilities', 'Transport', 'Entertainment', 'Gym', 'Drinks', 'Sutta',
-  'Gifts', 'Mid-day Meal', 'Self Reward', 'Chai/Coffee', 'Stationery',
-  'Borrowed Money', 'Other',
+  'Utilities', 'Transport', 'Entertainment', 'Other',
 ];
 
 let state = {
@@ -44,15 +38,15 @@ function renderLedger() {
   empty.hidden = true;
 
   for (const t of visible) {
-    const row = document.createElement('div');
     const isPayday = t.type === 'income' && t.recurring;
+    const row = document.createElement('div');
     row.className = `ledger__row${isPayday ? ' ledger__row--payday' : ''}`;
     row.dataset.id = t.id;
 
     row.innerHTML = `
       <span class="ledger__date">${formatDate(t.date)}</span>
       <span class="ledger__desc ${t.recurring ? 'ledger__desc-recurring' : ''}">${t.description || '\u2014'}</span>
-     <span class="ledger__category ledger__category--${t.type}">${t.category}</span>
+      <span class="ledger__category ledger__category--${t.type}">${t.category}</span>
       <span class="ledger__amount ledger__amount--${t.type}">${formatAmount(t.amount, t.type)}</span>
       <span class="ledger__actions">
         <button class="btn--icon" data-action="edit" title="Edit">\u270E</button>

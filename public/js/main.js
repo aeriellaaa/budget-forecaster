@@ -22,32 +22,8 @@ function initThemeToggle() {
   updateIcon();
 }
 
-function initCardTilt() {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return;
-
-  const maxTilt = 3; // degrees — kept subtle on purpose
-  document.querySelectorAll('.panel').forEach((panel) => {
-    panel.addEventListener('mousemove', (e) => {
-      const rect = panel.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -maxTilt;
-      const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * maxTilt;
-      panel.style.transition = 'transform 0.05s linear';
-      panel.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
-    });
-
-    panel.addEventListener('mouseleave', () => {
-      panel.style.transition = 'transform 0.4s ease';
-      panel.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
-    });
-  });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
-  initCardTilt();
   initTransactions();
   initForecast();
 });

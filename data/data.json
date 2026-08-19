@@ -2,7 +2,7 @@
   "balance": 0,
   "transactions": [
     {
-      "id": "1787087713978",
+      "id": "1787138095212",
       "type": "income",
       "amount": 3000,
       "category": "Salary",
@@ -12,7 +12,7 @@
       "recurrence": null
     },
     {
-      "id": "1787087729502",
+      "id": "1787138108520",
       "type": "expense",
       "amount": 500,
       "category": "Rent",
@@ -22,51 +22,51 @@
       "recurrence": null
     },
     {
-      "id": "1787087742681",
+      "id": "1787138124765",
       "type": "expense",
-      "amount": 200,
+      "amount": 100,
       "category": "Groceries",
+      "date": "2026-08-20",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787138149727",
+      "type": "expense",
+      "amount": 100,
+      "category": "Subscriptions",
       "date": "2026-08-21",
       "description": "",
       "recurring": false,
       "recurrence": null
     },
     {
-      "id": "1787087760478",
+      "id": "1787138177664",
       "type": "expense",
-      "amount": 50,
-      "category": "Other",
-      "date": "2026-08-22",
+      "amount": 1000,
+      "category": "Entertainment",
+      "date": "2026-08-21",
       "description": "",
       "recurring": false,
       "recurrence": null
     },
     {
-      "id": "1787087775586",
+      "id": "1787138218989",
       "type": "expense",
-      "amount": 20,
-      "category": "Other",
+      "amount": 50,
+      "category": "Utilities",
       "date": "2026-08-23",
       "description": "",
       "recurring": false,
       "recurrence": null
     },
     {
-      "id": "1787087793310",
+      "id": "1787138257541",
       "type": "expense",
-      "amount": 300,
-      "category": "Other",
-      "date": "2026-08-24",
-      "description": "",
-      "recurring": false,
-      "recurrence": null
-    },
-    {
-      "id": "1787087816346",
-      "type": "expense",
-      "amount": 300,
-      "category": "Utilities",
-      "date": "2026-08-25",
+      "amount": 150,
+      "category": "Groceries",
+      "date": "2026-08-23",
       "description": "",
       "recurring": false,
       "recurrence": null
