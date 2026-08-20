@@ -746,3 +746,138 @@ button, input, select {
 @keyframes toastOut {
   to { opacity: 0; transform: translateY(10px) scale(0.9); }
 }
+.weekview__tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+
+.weekview__tab {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border, #444);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.weekview__tab--active {
+  background: var(--accent, #5b8def);
+  color: #fff;
+  border-color: transparent;
+}
+
+.weekview__grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(130px, 1fr));
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.weekview__day {
+  border: 1px solid var(--border, #333);
+  border-radius: 10px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+}
+
+.weekview__entries {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.weekview__entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  line-height: 1.3;
+}
+
+.weekview__entry-cat {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.weekview__entry-amt {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.weekview__day--outside {
+  opacity: 0.35;
+}
+
+.weekview__day-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-bottom: 0.4rem;
+}
+
+.weekview__entries {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.weekview__entry {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.weekview__entry--empty {
+  opacity: 0.4;
+  justify-content: center;
+}
+
+.weekview__entry--income .weekview__entry-amt {
+  color: var(--income, #4caf50);
+}
+
+.weekview__entry--expense .weekview__entry-amt {
+  color: var(--expense, #e5657a);
+}
+
+.weekview__day-total {
+  margin-top: 0.4rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.weekview__total--pos { color: var(--income, #4caf50); }
+.weekview__total--neg { color: var(--expense, #e5657a); }
+
+.weekview__summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border, #333);
+}
+
+.weekview__summary-label {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.weekview__summary-value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.weekview__summary-value--income { color: var(--income, #4caf50); }
+.weekview__summary-value--expense { color: var(--expense, #e5657a); }

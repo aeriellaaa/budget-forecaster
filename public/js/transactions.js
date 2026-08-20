@@ -4,7 +4,9 @@
 
 const CATEGORIES = [
   'Salary', 'Freelance', 'Rent', 'Groceries', 'Subscriptions',
-  'Utilities', 'Transport', 'Entertainment', 'Other',
+  'Utilities', 'Transport', 'Entertainment', 'Gym', 'Drinks',
+  'Sutta', 'Gifts', 'Mid-day Meal', 'Self Reward', 'Chai/Coffee',
+  'Stationery', 'Borrowed Money', 'Other',
 ];
 
 let state = {
@@ -14,8 +16,8 @@ let state = {
 };
 
 function formatAmount(amount, type) {
-  const sign = type === 'income' ? '+' : '\u2212';
-  return `${sign}$${Number(amount).toFixed(2)}`;
+  const sign = type === 'income' ? '+' : '\u20B9';
+  return `${sign}${Number(amount).toFixed(2)}`;
 }
 
 function formatDate(isoDate) {
@@ -130,17 +132,22 @@ function loadTransactionIntoForm(t) {
   state.editingId = t.id;
 }
 
-async function refreshTransactions() {
+
+  async function refreshTransactions() {
   try {
     state.transactions = await getTransactions(state.filters);
     renderLedger();
     if (typeof renderActivityPanel === 'function') {
       renderActivityPanel(state.transactions);
     }
+    if (typeof renderWeekView === 'function') {
+      renderWeekView(state.transactions);
+    }
   } catch (err) {
     showListError(err.messages ? err.messages.join(' ') : 'Could not load transactions.');
   }
 }
+
 
 function initTransactionForm() {
   const form = document.getElementById('transaction-form');

@@ -2,71 +2,141 @@
   "balance": 0,
   "transactions": [
     {
-      "id": "1787138095212",
+      "id": "1787244906708",
       "type": "income",
       "amount": 3000,
       "category": "Salary",
-      "date": "2026-08-19",
+      "date": "2026-08-01",
       "description": "",
       "recurring": false,
       "recurrence": null
     },
     {
-      "id": "1787138108520",
-      "type": "expense",
-      "amount": 500,
-      "category": "Rent",
-      "date": "2026-08-20",
-      "description": "",
-      "recurring": false,
-      "recurrence": null
-    },
-    {
-      "id": "1787138124765",
-      "type": "expense",
-      "amount": 100,
-      "category": "Groceries",
-      "date": "2026-08-20",
-      "description": "",
-      "recurring": false,
-      "recurrence": null
-    },
-    {
-      "id": "1787138149727",
-      "type": "expense",
-      "amount": 100,
-      "category": "Subscriptions",
-      "date": "2026-08-21",
-      "description": "",
-      "recurring": false,
-      "recurrence": null
-    },
-    {
-      "id": "1787138177664",
-      "type": "expense",
-      "amount": 1000,
-      "category": "Entertainment",
-      "date": "2026-08-21",
-      "description": "",
-      "recurring": false,
-      "recurrence": null
-    },
-    {
-      "id": "1787138218989",
-      "type": "expense",
-      "amount": 50,
-      "category": "Utilities",
-      "date": "2026-08-23",
-      "description": "",
-      "recurring": false,
-      "recurrence": null
-    },
-    {
-      "id": "1787138257541",
+      "id": "1787244922382",
       "type": "expense",
       "amount": 150,
       "category": "Groceries",
-      "date": "2026-08-23",
+      "date": "2026-08-01",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787244935929",
+      "type": "expense",
+      "amount": 100,
+      "category": "Groceries",
+      "date": "2026-08-02",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787244953241",
+      "type": "expense",
+      "amount": 200,
+      "category": "Utilities",
+      "date": "2026-08-03",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787244979269",
+      "type": "expense",
+      "amount": 30,
+      "category": "Utilities",
+      "date": "2026-08-04",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787244995429",
+      "type": "expense",
+      "amount": 100,
+      "category": "Transport",
+      "date": "2026-08-05",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787245031848",
+      "type": "expense",
+      "amount": 20,
+      "category": "Subscriptions",
+      "date": "2026-08-06",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787245042308",
+      "type": "expense",
+      "amount": 30,
+      "category": "Rent",
+      "date": "2026-08-06",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787245060792",
+      "type": "expense",
+      "amount": 1000,
+      "category": "Rent",
+      "date": "2026-08-07",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787245187558",
+      "type": "expense",
+      "amount": 20,
+      "category": "Utilities",
+      "date": "2026-08-08",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787245198066",
+      "type": "expense",
+      "amount": 10,
+      "category": "Other",
+      "date": "2026-08-08",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787245213786",
+      "type": "expense",
+      "amount": 15,
+      "category": "Other",
+      "date": "2026-08-08",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787245226860",
+      "type": "expense",
+      "amount": 40,
+      "category": "Other",
+      "date": "2026-08-08",
+      "description": "",
+      "recurring": false,
+      "recurrence": null
+    },
+    {
+      "id": "1787245238884",
+      "type": "expense",
+      "amount": 50,
+      "category": "Entertainment",
+      "date": "2026-08-09",
       "description": "",
       "recurring": false,
       "recurrence": null

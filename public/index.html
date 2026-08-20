@@ -126,6 +126,26 @@
 
     <div class="right-column">
 
+      <!-- ===== Activity Panel ===== -->
+      <section class="panel panel--activity" id="activity-section" aria-labelledby="activity-heading">
+        <div class="panel__header">
+          <h2 id="activity-heading" class="panel__title">Activity</h2>
+          <div class="activity-ring-wrap">
+            <div id="activity-ring" class="activity-ring"></div>
+            <span id="activity-ring-value" class="activity-ring-value">—</span>
+          </div>
+        </div>
+        <div id="heatmap" class="heatmap"></div>
+      </section>
+
+      <!-- ===== Week View ===== -->
+      <section class="panel panel--weekview" id="weekview-section" aria-labelledby="weekview-heading">
+        <h2 id="weekview-heading" class="panel__title">Week view</h2>
+        <div class="weekview__tabs" id="weekview-tabs"></div>
+        <div class="weekview__grid" id="weekview-grid"></div>
+        <div class="weekview__summary" id="weekview-summary"></div>
+      </section>
+
       <!-- ===== Transaction List ===== -->
       <section class="panel panel--list" id="transaction-list-section" aria-labelledby="list-heading">
         <div class="panel__header">
@@ -153,18 +173,6 @@
           </div>
           <p class="ledger__empty" id="ledger-empty" hidden>No entries yet — add your first one on the left.</p>
         </div>
-      </section>
-
-      <!-- ===== Activity Panel ===== -->
-      <section class="panel panel--activity" id="activity-section" aria-labelledby="activity-heading">
-        <div class="panel__header">
-          <h2 id="activity-heading" class="panel__title">Activity</h2>
-          <div class="activity-ring-wrap">
-            <div id="activity-ring" class="activity-ring"></div>
-            <span id="activity-ring-value" class="activity-ring-value">—</span>
-          </div>
-        </div>
-        <div id="heatmap" class="heatmap"></div>
       </section>
 
       <!-- ===== Forecast Panel ===== -->
@@ -211,6 +219,7 @@
   <script src="js/heatmap.js"></script>
   <script src="js/chart.js"></script>
   <script src="js/forecast.js"></script>
+  <script src="js/weekview.js"></script>
   <script src="js/main.js"></script>
 </body>
 

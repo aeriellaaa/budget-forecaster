@@ -49,9 +49,9 @@ function renderBalanceChart(container, series) {
       return `
         <line x1="${padding.left}" y1="${y}" x2="${width - padding.right}" y2="${y}"
           stroke="var(--line)" stroke-width="1" stroke-dasharray="2,3" />
-        <text x="${padding.left - 8}" y="${y + 4}" text-anchor="end"
+               <text x="${padding.left - 8}" y="${y + 4}" text-anchor="end"
           font-family="var(--font-mono)" font-size="11" fill="var(--ink-faint)">
-          $${Math.round(val).toLocaleString()}
+          \u20B9${Math.round(val).toLocaleString()}
         </text>
       `;
     })
@@ -87,7 +87,7 @@ function renderBalanceChart(container, series) {
       <circle class="chart-lowest-dot" cx="${lowestX}" cy="${lowestY}" r="5" fill="var(--expense)" stroke="var(--card-bg)" stroke-width="2" />
       <text x="${lowestX}" y="${lowestY - 12}" text-anchor="middle"
         font-family="var(--font-mono)" font-size="11" font-weight="600" fill="var(--expense)">
-        $${Math.round(minBalance).toLocaleString()}
+        \u20B9${Math.round(minBalance).toLocaleString()}
       </text>
 
       ${xLabels}

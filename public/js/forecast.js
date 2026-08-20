@@ -1,7 +1,7 @@
 let currentWeek = 1;
 
 function formatCurrency(amount) {
-  return `$${Number(amount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  return `\u20B9${Number(amount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 function animateNumber(el, targetValue, duration = 600) {

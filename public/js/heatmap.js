@@ -69,8 +69,8 @@ function renderHeatmap(container, transactions) {
         const amount = totals[iso] || 0;
         const inYear = date.getFullYear() === year;
         const level = inYear ? levelForAmount(amount) : 'none';
-        const title = inYear
-          ? (amount > 0 ? `${iso}: $${amount.toFixed(2)} spent` : `${iso}: no spending`)
+                const title = inYear
+          ? (amount > 0 ? `${iso}: \u20B9${amount.toFixed(2)} spent` : `${iso}: no spending`)
           : '';
         return `<div class="heatmap-cell heatmap-cell--${level}" title="${title}"></div>`;
       }).join('') +
@@ -88,12 +88,12 @@ function renderHeatmap(container, transactions) {
         <div class="heatmap-grid">${gridHtml}</div>
       </div>
             <div class="heatmap-legend">
-        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--green"></span> under $50</span>
-        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--pink"></span> $50-150</span>
-        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--red"></span> $150-250</span>
-        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--orange"></span> $250-500</span>
-        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--blue"></span> $500-1000</span>
-        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--white"></span> over $1000</span>
+                <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--green"></span> under \u20B950</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--pink"></span> \u20B950-150</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--red"></span> \u20B9150-250</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--orange"></span> \u20B9250-500</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--blue"></span> \u20B9500-1000</span>
+        <span class="heatmap-legend__item"><span class="heatmap-cell heatmap-cell--white"></span> over \u20B91000</span>
       </div>
     </div>
   `;
@@ -132,9 +132,9 @@ function renderActivityRing(container, valueEl, transactions) {
     requestAnimationFrame(() => { progressCircle.style.strokeDashoffset = offset; });
   }
 
-  valueEl.innerHTML = `
-    <strong>$${spent.toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong>
-    <span>of $${total.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
+    valueEl.innerHTML = `
+    <strong>\u20B9${spent.toLocaleString(undefined, { maximumFractionDigits: 0 })}</strong>
+    <span>of \u20B9${total.toLocaleString(undefined, { maximumFractionDigits: 0 })}</span>
     ${isOver ? '<em>over budget 😬</em>' : ''}
   `;
 }
